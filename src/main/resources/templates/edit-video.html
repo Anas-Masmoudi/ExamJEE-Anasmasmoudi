@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier la vidéo</title>
+</head>
+<body>
+<h1>Modifier la vidéo</h1>
+<form th:action="@{/videos/edit}" th:object="${video}" method="post">
+    <input type="hidden" th:field="*{videoId}"/>
+    <label for="videoName">Nom :</label>
+    <input type="text" id="videoName" th:field="*{videoName}"/><br/>
+
+    <label for="videoUrl">URL :</label>
+    <input type="text" id="videoUrl" th:field="*{videoUrl}"/><br/>
+
+    <label for="videoDescription">Description :</label>
+    <input type="text" id="videoDescription" th:field="*{videoDescription}"/><br/>
+
+    <button type="submit">Mettre à jour</button>
+</form>
+<a href="/videos">Retour à la liste des vidéos</a>
+</body>
+</html>

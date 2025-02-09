@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des vidéos</title>
+</head>
+<body>
+<h1>Liste des vidéos</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>URL</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="video : ${videos}">
+        <td th:text="${video.videoName}"></td>
+        <td th:text="${video.videoUrl}"></td>
+        <td th:text="${video.videoDescription}"></td>
+        <td>
+            <a th:href="@{'/videos/edit/' + ${video.videoId}}">Modifier</a> |
+            <a th:href="@{'/videos/delete/' + ${video.videoId}}">Supprimer</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/videos/new">Ajouter une nouvelle vidéo</a>
+</body>
+</html>
